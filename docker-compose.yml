@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  ca1db:
+    image: mysql:8.0.30
+    #restart: always
+    restart: on-failure
+    environment:
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+    ports:
+      - '4000:3306'
+    networks:
+      ca1projektnetwork:
+        ipv4_address: 192.168.2.3
+    volumes:
+      - ca1db:/var/lib/mysql
+      - ca1db-log:/var/log/mysql
+      - ./database/scripts:/docker-entrypoint-initdb.d
+  ca1web:
+    depends_on:
+      - ca1db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tomcat
+    environment:
+      - DEPLOYED=$DEPLOYED
+      - JDBC_USER=$JDBC_USER
+      - JDBC_PASSWORD=$JDBC_PASSWORD
+      - JDBC_DRIVER_PREFIX=$JDBC_DRIVER_PREFIX
+      - JDBC_HOST=$JDBC_HOST
+      - JDBC_DB=$JDBC_DB
+      - JDBC_PARAMS=$JDBC_PARAMS
+    ports:
+      - '4100:8080'
+    networks:
+      ca1projektnetwork:
+        ipv4_address: 192.168.2.2
+    extra_hosts:
+      - 'host.docker.internal:192.168.2.1' #- 'host.docker.internal:host-gateway'
+volumes:
+  ca1db:
+    driver: local
+  ca1db-log:
+    driver: local
+networks:
+  ca1projektnetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.2.0/24"
+          gateway: "192.168.2.1"
