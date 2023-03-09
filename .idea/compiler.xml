@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="rest_start_code" options="-endorseddirs C:\Users\chris\IdeaProjects\CA1-Sem3\target/endorsed" />
+      <module name="rest_start_code" options="-endorseddirs C:\3-semester\CPH-CourseAssignment1-Sem3\target/endorsed" />
     </option>
   </component>
 </project>
