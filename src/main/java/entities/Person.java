@@ -1,10 +1,13 @@
 package entities;
 
+import dtos.PersonDTO;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "person", schema = "ca1")
@@ -39,6 +42,10 @@ public class Person {
 
     public Person() {
 
+    }
+
+    public static List<PersonDTO> getDtos(List<Person> ps) {
+        return null;
     }
 
     public Integer getId() {
