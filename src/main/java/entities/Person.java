@@ -1,10 +1,8 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "person", schema = "ca1")
@@ -28,15 +26,39 @@ public class Person {
     @Column(name = "age")
     private Integer age;
 
+    @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
+    private List<Phone> phones;
+
+    @OneToMany(mappedBy = "addresses")
+    private List<Address> address;
+
+    public Person() {
+    }
+
     public Person(Integer id, String email, String firstname, String lastname, Integer age) {
         this.id = id;
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
+        this.address = address;
+        this.phones = phones;
     }
 
-    public Person() {
+    public List<Address> getAddress() {
+        return address;
+    }
+
+    public void setAddress(List<Address> address) {
+        this.address = address;
+    }
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
     }
 
 

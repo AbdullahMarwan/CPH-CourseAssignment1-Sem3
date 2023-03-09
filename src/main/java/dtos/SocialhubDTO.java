@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link Socialhub} entity
  */
-public class SocialhubDto implements Serializable {
+public class SocialhubDTO implements Serializable {
     @Size(max = 45)
     private final String id;
     @Size(max = 90)
@@ -26,7 +26,7 @@ public class SocialhubDto implements Serializable {
     @NotNull
     private final Integer zipcode;
 
-    public SocialhubDto(String id, String hobbylink, String personname, Integer personage, Integer experience, Integer zipcode) {
+    public SocialhubDTO(String id, String hobbylink, String personname, Integer personage, Integer experience, Integer zipcode) {
         this.id = id;
         this.hobbylink = hobbylink;
         this.personname = personname;
@@ -63,7 +63,7 @@ public class SocialhubDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SocialhubDto entity = (SocialhubDto) o;
+        SocialhubDTO entity = (SocialhubDTO) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.hobbylink, entity.hobbylink) &&
                 Objects.equals(this.personname, entity.personname) &&

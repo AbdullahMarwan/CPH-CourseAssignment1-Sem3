@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link Hobby} entity
  */
-public class HobbyDto implements Serializable {
+public class HobbyDTO implements Serializable {
     @Size(max = 45)
     private final String id;
     @Size(max = 90)
@@ -23,7 +23,7 @@ public class HobbyDto implements Serializable {
     @NotNull
     private final String type;
 
-    public HobbyDto(String id, String wikilink, String category, String type) {
+    public HobbyDTO(String id, String wikilink, String category, String type) {
         this.id = id;
         this.wikilink = wikilink;
         this.category = category;
@@ -50,7 +50,7 @@ public class HobbyDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HobbyDto entity = (HobbyDto) o;
+        HobbyDTO entity = (HobbyDTO) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.wikilink, entity.wikilink) &&
                 Objects.equals(this.category, entity.category) &&

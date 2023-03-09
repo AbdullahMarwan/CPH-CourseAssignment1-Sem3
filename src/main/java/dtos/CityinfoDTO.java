@@ -1,6 +1,6 @@
 package dtos;
 
-import entities.Address;
+import entities.Cityinfo;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -8,46 +8,45 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A DTO for the {@link Address} entity
+ * A DTO for the {@link Cityinfo} entity
  */
-public class AddressDto implements Serializable {
-    @Size(max = 45)
-    private final String id;
+public class CityinfoDTO implements Serializable {
+    private final Integer id;
     @Size(max = 45)
     @NotNull
-    private final String addinfo;
+    private final String cityname;
 
-    public AddressDto(String id, String addinfo) {
+    public CityinfoDTO(Integer id, String cityname) {
         this.id = id;
-        this.addinfo = addinfo;
+        this.cityname = cityname;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public String getAddinfo() {
-        return addinfo;
+    public String getCityname() {
+        return cityname;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AddressDto entity = (AddressDto) o;
+        CityinfoDTO entity = (CityinfoDTO) o;
         return Objects.equals(this.id, entity.id) &&
-                Objects.equals(this.addinfo, entity.addinfo);
+                Objects.equals(this.cityname, entity.cityname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, addinfo);
+        return Objects.hash(id, cityname);
     }
 
     @Override
     public String toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
-                "addinfo = " + addinfo + ")";
+                "cityname = " + cityname + ")";
     }
 }

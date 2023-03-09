@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link Phone} entity
  */
-public class PhoneDto implements Serializable {
+public class PhoneDTO implements Serializable {
     private final Integer id;
     @Size(max = 8)
     @NotNull
@@ -19,10 +19,16 @@ public class PhoneDto implements Serializable {
     @NotNull
     private final String description;
 
-    public PhoneDto(Integer id, String number, String description) {
+    public PhoneDTO(Integer id, String number, String description) {
         this.id = id;
         this.number = number;
         this.description = description;
+    }
+
+    public PhoneDTO(Phone phone) {
+        this.id = phone.getId();
+        this.number = phone.getNumber();
+        this.description = phone.getDescription();
     }
 
     public Integer getId() {
@@ -41,7 +47,7 @@ public class PhoneDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PhoneDto entity = (PhoneDto) o;
+        PhoneDTO entity = (PhoneDTO) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.number, entity.number) &&
                 Objects.equals(this.description, entity.description);
