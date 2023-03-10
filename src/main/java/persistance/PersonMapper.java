@@ -12,7 +12,7 @@ public class PersonMapper {
     public static Person getSpecificPerson(int personId) {
         Logger.getLogger("web").log(Level.INFO, "");
 
-        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+        PersistenceManager persistenceManager = new PersistenceManager("pu");
 
         Person person = persistenceManager.getEntityManager().find(Person.class, personId);
 
@@ -21,7 +21,7 @@ public class PersonMapper {
 
     public static List<Person> getAllPeople() {
 
-        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+        PersistenceManager persistenceManager = new PersistenceManager("pu");
 
         TypedQuery<Person> query = persistenceManager.getEntityManager().createNamedQuery("getAllPeople", Person.class);
 

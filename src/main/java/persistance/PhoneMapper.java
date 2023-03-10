@@ -12,7 +12,7 @@ public class PhoneMapper {
     static void saveNewPhone(Phone phone) {
         Logger.getLogger("web").log(Level.INFO, "");
 
-        PersistenceManager persistenceManager = new PersistenceManager("fog-unit");
+        PersistenceManager persistenceManager = new PersistenceManager("pu");
 
         persistenceManager.entityTransaction().begin();
 
