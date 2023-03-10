@@ -1,6 +1,7 @@
 package entities;
 
 import dtos.PersonDTO;
+import jakarta.persistence.NamedQuery;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+@NamedQuery(name = "getAllPeople", query = "SELECT p FROM Person p")
 @Table(name = "person", schema = "ca1")
 public class Person {
 

@@ -1,24 +1,19 @@
     package rest;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import dtos.PersonDTO;
-import dtos.RenameMeDTO;
-import facades.FacadeExample;
-import facades.PersonFacade;
-import utils.EMF_Creator;
+import persistance.PersonFacadeOld;
+
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-//Todo Remove or change relevant parts before ACTUAL use
+    //Todo Remove or change relevant parts before ACTUAL use
 @Path("/person")
 public class PersonResource {
-    private final PersonFacade personsFacade;
+    private final PersonFacadeOld personsFacade;
 
     public PersonResource() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
