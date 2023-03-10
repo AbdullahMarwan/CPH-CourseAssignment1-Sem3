@@ -9,13 +9,10 @@
         <module name="rest_start_code" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="rest_start_code" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="rest_start_code" options="-endorseddirs C:\Users\nikol\Documents\GitHub\CPH-CourseAssignment1-Sem3\target/endorsed" />
+      <module name="rest_start_code" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
     </option>
   </component>
 </project>
