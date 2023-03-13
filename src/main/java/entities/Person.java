@@ -1,5 +1,7 @@
 package entities;
 
+import dtos.AddressDTO;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -29,8 +31,8 @@ public class Person {
     @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
     private List<Phone> phones;
 
-    @OneToMany(mappedBy = "addresses")
-    private List<Address> address;
+    @OneToOne(mappedBy = "address")
+    private Address address;
 
     public Person() {
     }
@@ -45,12 +47,12 @@ public class Person {
         this.phones = phones;
     }
 
-    public List<Address> getAddress() {
+    public Address getAddress() {
         return address;
     }
 
     public void setAddress(List<Address> address) {
-        this.address = address;
+        this.address = (Address) address;
     }
 
     public List<Phone> getPhones() {

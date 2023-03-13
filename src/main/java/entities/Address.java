@@ -20,13 +20,18 @@ public class Address {
     @Column(name = "addinfo", nullable = false, length = 45)
     private String addinfo;
 
-    @OneToMany
+    @OneToOne
     @JoinTable(
             name = "person_address",
             joinColumns = @JoinColumn(name = "address_street", referencedColumnName = "street"),
             inverseJoinColumns = @JoinColumn(name = "person_personid", referencedColumnName = "personid")
     )
-    private List<Address> addresses;
+    private Address address;
+
+    public Address(String id, String addinfo) {
+        this.id = id;
+        this.addinfo = addinfo;
+    }
 
     public String getId() {
         return id;

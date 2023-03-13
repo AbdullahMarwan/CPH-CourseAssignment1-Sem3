@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="rest_start_code-1.0.1.war">
+    <root id="archive" name="ca1-1.0.1.war">
       <element id="artifact" artifact-name="rest_start_code:war exploded" />
     </root>
   </artifact>

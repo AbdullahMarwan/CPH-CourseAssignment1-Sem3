@@ -1,5 +1,6 @@
 package dtos;
 
+import entities.Address;
 import entities.Person;
 
 import javax.validation.constraints.Size;
@@ -29,7 +30,7 @@ public class PersonDTO implements Serializable {
         this.age = age;
     }
 
-    private List<AddressDTO> addresses = new ArrayList<>();
+//    private AddressDTO address = new AddressDTO(Address.class.newInstance());
     private List<PhoneDTO> phones = new ArrayList<>();
 
     public PersonDTO(Person person) {
@@ -38,7 +39,7 @@ public class PersonDTO implements Serializable {
         this.firstname = person.getFirstname();
         this.lastname = person.getLastname();
         this.age = person.getAge();
-        person.getAddress().forEach(address ->this.addresses.add(new AddressDTO(address)));
+//        person.getAddress() = new Address(person.getAddress());
         person.getPhones().forEach(phone ->this.phones.add(new PhoneDTO(phone)));
     }
 
