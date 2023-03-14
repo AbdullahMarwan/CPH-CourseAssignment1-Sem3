@@ -21,7 +21,7 @@ public class Phone {
     @Column(name = "description", nullable = false, length = 45)
     private String description;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "personid", referencedColumnName = "id")
     private Person person;
 
@@ -49,4 +49,6 @@ public class Phone {
         this.description = description;
     }
 
+    public void setPerson(Person p) {
+    }
 }

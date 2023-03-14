@@ -20,13 +20,16 @@ public class Address {
     @Column(name = "addinfo", nullable = false, length = 45)
     private String addinfo;
 
-    @OneToOne
-    @JoinTable(
-            name = "person_address",
-            joinColumns = @JoinColumn(name = "address_street", referencedColumnName = "street"),
-            inverseJoinColumns = @JoinColumn(name = "person_personid", referencedColumnName = "personid")
-    )
-    private Address address;
+//    @OneToOne
+//    @JoinTable(
+//            name = "person_address",
+//            joinColumns = @JoinColumn(name = "address_street", referencedColumnName = "street"),
+//            inverseJoinColumns = @JoinColumn(name = "person_personid", referencedColumnName = "personid")
+//    )
+//    private String address;
+
+    public Address() {
+    }
 
     public Address(String id, String addinfo) {
         this.id = id;
@@ -50,5 +53,8 @@ public class Address {
     }
 
     public void add(AddressDTO addressDTO) {
+    }
+
+    public void setPerson(Person p) {
     }
 }

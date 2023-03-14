@@ -8,100 +8,101 @@ import java.util.List;
 
 @Entity
 @Table(name = "person", schema = "ca1")
+@NamedQuery(name = "Person.deleteAllRows", query = "DELETE from Person")
 public class Person {
     @Id
-    @Column(name = "personid", nullable = false)
-    private Integer id;
+    @Column(name = "personid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Size(max = 45)
     @Column(name = "email", length = 45)
     private String email;
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Size(max = 45)
     @Column(name = "firstname", length = 45)
     private String firstname;
+    public String getFirstname() {
+        return firstname;
+    }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
     @Size(max = 45)
     @Column(name = "lastname", length = 45)
     private String lastname;
+    public String getLastname() {
+        return lastname;
+    }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
+    @Basic
     @Column(name = "age")
-    private Integer age;
+    private int age;
+    public int getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
-    private List<Phone> phones;
+    @OneToOne(mappedBy = "person")
+    private Phone phone;
+    public Phone getPhone() {
+        return phone;
+    }
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
 
     @OneToOne(mappedBy = "address")
     private Address address;
+    public Address getAddress() {
+        return address;
+    }
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Person() {
     }
 
-    public Person(Integer id, String email, String firstname, String lastname, Integer age) {
-        this.id = id;
+    public Person(String email, String firstname, String lastname, int age) {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
         this.address = address;
-        this.phones = phones;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(List<Address> address) {
-        this.address = (Address) address;
-    }
-
-    public List<Phone> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
+        this.phone = phone;
     }
 
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public String getFirstname() {
-        return firstname;
-    }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
 
-    public String getLastname() {
-        return lastname;
-    }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
 
-    public Integer getAge() {
-        return age;
-    }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+
+
+
 
 }
