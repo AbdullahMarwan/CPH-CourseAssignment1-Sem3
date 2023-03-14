@@ -32,7 +32,7 @@ public class PersonResource {
     @GET
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getById(@PathParam("id") int id) throws EntityNotFoundException {
+    public Response getById(@PathParam("id") int id) throws EntityNotFoundException, InstantiationException, IllegalAccessException {
         PersonDTO p = FACADE.getById(id);
         return Response.ok().entity(GSON.toJson(p)).build();
     }
@@ -56,5 +56,13 @@ public class PersonResource {
         pdto.setId(id);
         PersonDTO updated = FACADE.update(pdto);
         return Response.ok().entity(GSON.toJson(updated)).build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response delete(@PathParam("id") int id) throws EntityNotFoundException, InstantiationException, IllegalAccessException {
+        PersonDTO deleted = FACADE.delete(id);
+        return Response.ok().entity(GSON.toJson(deleted)).build();
     }
 }

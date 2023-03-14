@@ -14,5 +14,5 @@ public interface IPerson {
 
     PersonDTO update(PersonDTO p) throws EntityNotFoundException;
 
-    PersonDTO delete(int id) throws EntityNotFoundException;
+    PersonDTO delete(int id) throws EntityNotFoundException, InstantiationException, IllegalAccessException;
 }
