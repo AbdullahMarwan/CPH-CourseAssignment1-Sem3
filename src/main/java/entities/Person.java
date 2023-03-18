@@ -1,6 +1,6 @@
 package entities;
 
-import dtos.AddressDTO;
+import dtos.AddressDto;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "person", schema = "ca1")
-@NamedQuery(name = "Person.deleteAllRows", query = "DELETE from Person")
+//@NamedQuery(name = "Person.deleteAllRows", query = "DELETE from Person")
 public class Person {
     @Id
     @Column(name = "personid")

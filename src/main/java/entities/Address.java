@@ -1,6 +1,6 @@
 package entities;
 
-import dtos.AddressDTO;
+import dtos.AddressDto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -52,7 +52,7 @@ public class Address {
         this.addinfo = addinfo;
     }
 
-    public void add(AddressDTO addressDTO) {
+    public void add(AddressDto addressDto) {
     }
 
     public void setPerson(Person p) {
